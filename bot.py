@@ -35,7 +35,7 @@ async def rates(message: Message) -> None:
 
 
 @dp.message(F.text.startswith("/exchange"))
-async def rates(message: Message) -> None:
+async def exchange(message: Message) -> None:
     x = message.text.split(" ")
     if len(x) < 4:
         await message.answer("чета не то")
@@ -62,11 +62,6 @@ async def rates(message: Message) -> None:
         return
 
     await message.answer(f"{v1/v2 * amount}")
-
-
-@dp.message()
-async def echo_handler(message: Message) -> None:
-    await message.send_copy(chat_id=message.chat.id)
 
 
 async def main() -> None:
