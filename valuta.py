@@ -29,7 +29,7 @@ async def get_xml(url) -> str:
 
 
 async def xml_to_dict(data: str) -> list:
-    valutes = []
+    valutas = []
     root = Etree.fromstring(data)
     for valute in root:
         value = None
