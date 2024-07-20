@@ -11,7 +11,7 @@ from aiogram.types import Message
 
 import redis.asyncio as redis
 
-from valutes import baba
+from valuta import baba
 import config
 
 dp = Dispatcher()
@@ -28,8 +28,8 @@ async def rates(message: Message) -> None:
     text = ""
     data = await r.hgetall("data")
     for i in data:
-        valute_data = json.loads(data[i])
-        text += f"{valute_data['name']}({valute_data['charcode']})=={valute_data['value']} rubles\n"
+        valuta_data = json.loads(data[i])
+        text += f"{valuta_data['name']}({valuta_data['charcode']})=={valuta_data['value']} rubles\n"
 
     await message.answer(text)
 
